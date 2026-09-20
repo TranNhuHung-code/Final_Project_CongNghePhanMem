@@ -1,0 +1,36 @@
+extends ../layouts/default.pug
+
+block title 
+    title Chi tiết CV (Nhà tuyển dụng)
+
+block main
+    //- Chi tiết CV
+    div(class="py-[60px]")
+        .contain 
+            div(class="")
+                //- Thông tin CV
+                div(class="border border-[#DEDEDE] rounded-[8px] p-[20px]")
+                    div(class="flex flex-col sm:flex-row justify-between mb-[20px] gap-[20px]")
+                        h1(class="font-[700] text-[20px]") Thông tin CV
+                        a(href="" class="font-[400] text-[14px] text-[#0088FF] underline") Quay lại danh sách
+
+                    div(class="font-[400] text-[16px]") Họ tên: <span class="font-[600] text-[16px]">Lê Văn A</span> 
+                    div(class="font-[400] text-[16px] mt-[10px]") Email: <span class="font-[600] text-[16px]">levana@gmail.com</span> 
+                    div(class="font-[400] text-[16px] mt-[10px]") Số điện thoại: <span class="font-[600] text-[16px]">0123456789</span> 
+ 
+                    div(class="")
+                        div(class="font-[400] text-[16px] my-[10px]") File CV:
+                        embed(src="", type="application/pdf" class="bg-[#D9D9D9] w-full h-[736px]") 
+                //- Hết Thông tin CV
+
+                //- Thông tin công việc
+                div(class="border border-[#DEDEDE] rounded-[8px] p-[20px] mt-[20px]")
+                    div(class="font-[700] text-[20px] mb-[20px]") Thông tin công việc
+                    div(class="font-[400] text-[16px] mb-[10px]") Tên công việc: <span class="font-[600] text-[16px]">Frontend Engineer (ReactJS)</span> 
+                    div(class="font-[400] text-[16px] mb-[10px]") Mức lương: <span class="font-[600] text-[16px]">1.000$ - 1.500$</span> 
+                    div(class="font-[400] text-[16px] mb-[10px]") Cấp bậc: <span class="font-[600] text-[16px]">Fresher</span> 
+                    div(class="font-[400] text-[16px] mb-[10px]") Hình thức làm việc: <span class="font-[600] text-[16px]">Tại văn phòng</span> 
+                    div(class="font-[400] text-[16px] mb-[10px]") Công nghệ: <span class="font-[600] text-[16px]">HTML5, CSS3, Javascript, ReactJS</span> 
+                    a(href="" class="font-[400] text-[14px] text-[#0088FF] underline") Xem chi tiết công việc 
+                //- Hết Thông tin công việc
+    //- Hết Chi tiết CV

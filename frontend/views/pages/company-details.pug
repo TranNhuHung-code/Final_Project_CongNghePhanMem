@@ -1,0 +1,60 @@
+extends ../layouts/default.pug
+
+block title 
+    title Chi tiết công ty
+
+block main
+    //- Chi tiết công ty
+    div(class="pt-[30px] pb-[60px]") 
+        .contain 
+            //- Thông tin công ty
+            div(class="p-[20px] border border-[#DEDEDE] rounded-[8px]")
+                div(class="flex flex-wrap gap-[16px] mb-[20px]")
+                    img(src="assets/images/demo/demo4.png" class="w-[100px] rounded-[4px]")
+                    div(class="")
+                        div(class="font-[700] text-[28px] text-[#121212] mb-[10px]") LG CNS Việt Nam
+                        div(class="font-[400] text-[14px] text-[#121212]") <i class="fa-solid fa-location-dot text-[16px] mr-[4px]"></i> Tầng 15, tòa Keangnam Landmark 72, Mễ Trì, Nam Tu Liem, Ha Noi
+ 
+                div(class="")
+                    div(class="flex gap-[4px] mb-[10px]")
+                        div(class="font-[400] text-[16px] text-[#A6A6A6]") Mô hình công ty:
+                        div(class="font-[400] text-[16px] text-[#121212]") Sản phẩm
+                    div(class="flex gap-[4px] mb-[10px]")
+                        div(class="font-[400] text-[16px] text-[#A6A6A6]") Quy mô công ty:
+                        div(class="font-[400] text-[16px] text-[#121212]") 151 - 300 nhân viên
+                    div(class="flex gap-[4px] mb-[10px]")
+                        div(class="font-[400] text-[16px] text-[#A6A6A6]") Thời gian làm việc:
+                        div(class="font-[400] text-[16px] text-[#121212]") Thứ 2 - Thứ 6
+                    div(class="flex gap-[4px]")
+                        div(class="font-[400] text-[16px] text-[#A6A6A6]") Làm việc ngoài giờ:
+                        div(class="font-[400] text-[16px] text-[#121212]") Không có OT
+            //- Hết Thông tin công ty
+
+            //- Mô tả chi tiết
+            div(class="border border-[#DEDEDE] rounded-[8px] p-[20px] mt-[20px]") 
+                p(class="") Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.          
+            //- Hết Mô tả chi tiết
+
+            //- Công việc
+            div(class="mt-[30px]")
+                h1(class="font-[700] text-[28px] text-[#121212] mb-[20px]") Công ty có 6 việc làm
+                div(class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-[20px]") 
+                    div(class="card-item")
+                        img(src="assets/images/bg-card.png" class="inner-bg")
+                        a(href="" class="inner-box") 
+                            div(class="py-[20px] px-[16px]")
+                                div(class="inner-img w-[116px]")
+                                    img(src="assets/images/demo/image1.png" class="")
+                                h3(class="font-[700] text-[18px] text-[#121212] text-center line-clamp-[2] mb-[6px]") Frontend Engineer (ReactJS)
+                                div(class="font-[400] text-[14px] text-[#121212] text-center mb-[12px]") LG CNS Việt Nam
+                                div(class="font-[600] text-[16px] text-[#0088FF] text-center mb-[6px]") 1.000$ - 1.500$
+                                div(class="font-[400] text-[14px] text-[#121212] text-center") <i class="fa-solid fa-user-tie text-[16px] mr-[8px]"></i> Fresher
+                                div(class="font-[400] text-[14px] text-[#121212] text-center mt-[6px]") <i class="fa-solid fa-briefcase text-[16px] mr-[8px]"></i> Tại văn phòng
+                                div(class="font-[400] text-[14px] text-[#121212] text-center mt-[6px]") <i class="fa-solid fa-location-dot text-[16px] mr-[8px]"></i> Ha Noi
+                                div(class="mt-[12px] flex justify-center items-center flex-wrap gap-[12px]") 
+                                    div(class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]") ReactJS
+                                    div(class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]") NextJS
+                                    div(class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]") Javascript   
+            //- Hết Công việc
+
+    //- Hết Chi tiết công ty

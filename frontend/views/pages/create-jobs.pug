@@ -1,0 +1,54 @@
+extends ../layouts/default.pug
+
+block title 
+    title Thêm mới công việc (Nhà tuyển dụng)
+
+block main
+    //- Thêm mới công việc
+    div(class="py-[60px]")
+        .contain
+            div(class="border border-[#DEDEDE] rounded-[8px] p-[20px]")    
+                div(class="flex flex-col sm:flex-row justify-between mb-[20px] gap-[20px]")
+                    h1(class="font-[700] text-[20px]") Thêm mới công việc
+                    a(href="" class="font-[400] text-[14px] text-[#0088FF] underline") Quay lại danh sách 
+
+                form(class="mt-[20px]")
+                    div(class="mb-[15px]")
+                        label(for="" class="font-[500] text-[14px] mb-[5px]") Tên công việc *
+                        input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full") 
+
+                    div(class="grid sm:grid-cols-2 grid-cols-1 sm:gap-[20px] gap-[15px] mb-[15px]")
+                        div(class="")
+                            label(for="" class="font-[500] text-[14px] mb-[5px]") Mức lương tối thiểu ($)
+                            input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")  
+                        div(class="")
+                            label(for="" class="font-[500] text-[14px] mb-[5px]") Mức lương tối đa ($)
+                            input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full") 
+
+                    div(class="grid sm:grid-cols-2 grid-cols-1 sm:gap-[20px] gap-[15px] mb-[15px]")
+                        div(class="")
+                            label(for="" class="font-[500] text-[14px] mb-[5px]") Cấp bậc *
+                            select(class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")
+                                option(value="" class="") Intern 
+                                option(value="" class="") Middle
+                        div(class="")
+                            label(for="" class="font-[500] text-[14px] mb-[5px]") Hình thức làm việc *
+                            select(class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")
+                                option(value="" class="") Tại văn phòng 
+                                option(value="" class="") Từ xa
+
+                    div(class="mb-[15px]")
+                        label(for="" class="font-[500] text-[14px] mb-[5px]") Các công nghệ
+                        input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")
+
+                    div(class="mb-[15px]")
+                        label(for="" class="font-[500] text-[14px] mb-[5px]") Danh sách ảnh *
+                        input(type="file" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")
+
+                    div(class="mb-[15px]")
+                        label(for="" class="font-[500] text-[14px] mb-[5px]") Mô tả chi tiết
+                        input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full min-h-[350px]")
+  
+                div(class="")
+                    button(class="bg-[#0088FF] rounded-[4px] py-[14px] px-[20px] font-[700] text-[16px] text-white cursor-pointer") Tạo mới
+    //- Hết Thêm mới công việc

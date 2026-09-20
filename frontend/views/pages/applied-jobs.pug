@@ -1,0 +1,30 @@
+extends ../layouts/default.pug
+
+block title 
+    title Quản lý CV đã gửi (Ứng viên)
+
+block main
+    //- Quản lý CV đã gửi
+    div(class="py-[60px]") 
+        .contain 
+            div(class="")
+                h1(class="font-[700] text-[28px] text-[#121212] mb-[20px]") Quản lý CV đã gửi
+                div(class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[20px]")
+                    div(class="card-item p-[20px]")
+                        img(src="assets/images/bg-card.png" class="inner-bg")
+                        div(class="font-[700] text-[18px] text-[#121212] text-center line-clamp-[2]") Frontend Engineer (ReactJS)
+                        div(class="mt-[12px] font-[400] text-[14px] text-center") Công ty: <span class="font-[700] text-[14px]">Công ty ABC</span>
+                        div(class="font-[600] text-[16px] text-[#0088FF] text-center mt-[6px]") 1.000$ - 1.500$
+                        div(class="font-[400] text-[14px] text-[#121212] text-center mt-[6px]") <i class="fa-solid fa-user-tie text-[16px] mr-[1px]"></i> Fresher
+                        div(class="font-[400] text-[14px] text-[#121212] text-center mt-[6px]") <i class="fa-solid fa-briefcase text-[16px] mr-[1px]"></i> Tại văn phòng
+                        div(class="font-[400] text-[14px] text-[#121212] text-center mt-[6px]") <i class="fa-solid fa-circle-check [16px] mr-[1px]"></i> Chưa duyệt
+    
+                        div(class="flex flex-wrap justify-center gap-[8px] mt-[12px]")
+                            button(class="bg-[#0088FF] rounded-[4px] py-[8px] px-[20px] cursor-pointer font-[400] text-[14px] text-white") Xem
+                            button(class="bg-[#FF0000] rounded-[4px] py-[8px] px-[20px] cursor-pointer font-[400] text-[14px] text-white") Xóa
+
+                div(class="mt-[30px]")
+                    select(class="border border-[#DEDEDE] rounded-[8px] py-[12px] px-[18px] font-[400] text-[16px] text-[#414042]")
+                        option(value="") Trang 1             
+                        option(value="") Trang 2   
+    //- Hết Quản lý CV đã gửi

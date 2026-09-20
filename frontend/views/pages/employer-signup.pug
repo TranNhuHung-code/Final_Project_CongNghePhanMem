@@ -1,0 +1,28 @@
+extends ../layouts/default.pug
+
+block title 
+    title Đăng ký (Nhà tuyển dụng)
+
+block main
+    //- Đăng kí
+    div(class="py-[60px]")
+        .contain 
+            div(class="border border-[#DEDEDE] rounded-[8px] py-[50px] px-[20px] max-w-[602px] mx-auto")
+                h1(class="font-[700] text-[20px] text-center") Đăng ký (Nhà tuyển dụng)
+                form(id="employer-signup-form" class="mt-[20px]") 
+                    div(class="")
+                        label(for="companyName" class="font-[500] text-[14px]") Tên công ty *
+                        input(type="text" id="companyName" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full") 
+                    div(class="")
+                        label(for="email" class="font-[500] text-[14px]") Email *  
+                        input(type="email" id="email" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full") 
+                    div(class="")
+                        label(for="password" class="font-[500] text-[14px]") Mật khẩu *
+                        input(type="password" id="password" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full") 
+                    p(id="error-message" class="text-red-500 text-[14px] mb-[10px] hidden")
+                    div(class="") 
+                        button(type="submit" class="bg-[#0088FF] py-[14px] rounded-[4px] font-[700] text-[16px] text-white text-center w-full cursor-pointer") Đăng ký
+    //- Hết Đăng kí
+
+block scripts
+    script(src="assets/js/employer-signup.js")

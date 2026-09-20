@@ -1,0 +1,61 @@
+extends ../layouts/default.pug
+
+block title 
+    title Thông tin công ty (Nhà tuyển dụng)
+
+block main
+    //- Thông tin công ty (Nhà tuyển dụng)
+    div(class="py-[60px]")     
+        div(class="border border-[#DEDEDE] rounded-[8px] p-[20px]")
+            h1(class="font-[700] text-[20px] mb-[20px]") Thông tin công ty
+            form(class="") 
+                div(class="")
+                    label(for="" class="font-[500] text-[14px]") Tên công ty *
+                    input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")  
+
+                div(class="")
+                    label(for="" class="font-[500] text-[14px]") Logo
+                    input(type="file" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")  
+
+                div(class="grid md:grid-cols-2 grid-cols-1 md:gap-[20px] gap-[15px]")
+                    div(class="")
+                        label(for="" class="font-[500] text-[14px]") Thành phố
+                        select(class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full") 
+                            option(value="") Hà Nội 
+                            option(value="") TP.HCM 
+                    div(class="")
+                        label(for="" class="font-[500] text-[14px]") Địa chỉ
+                        input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")
+                
+                div(class="grid md:grid-cols-2 grid-cols-1 md:gap-[20px] gap-[15px]")
+                    div(class="")
+                        label(for="" class="font-[500] text-[14px]") Mô hình công ty
+                        input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full")
+                    div(class="")
+                        label(for="" class="font-[500] text-[14px]") Quy mô công ty
+                        input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")
+
+                div(class="grid md:grid-cols-2 grid-cols-1 md:gap-[20px] gap-[15px]")
+                    div(class="")
+                        label(for="" class="font-[500] text-[14px]") Thời gian làm việc
+                        input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full")
+                    div(class="")
+                        label(for="" class="font-[500] text-[14px]") Làm việc ngoài giờ
+                        input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")
+
+                div(class="grid md:grid-cols-2 grid-cols-1 md:gap-[20px] gap-[15px]")
+                    div(class="")
+                        label(for="" class="font-[500] text-[14px]") Email *
+                        input(type="email" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full")
+                    div(class="")
+                        label(for="" class="font-[500] text-[14px]") Số điện thoại
+                        input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")
+
+                div(class="")
+                    label(for="" class="font-[500] text-[14px]") Mô tả chi tiết 
+                    input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full min-h-[350px]")
+
+            div(class="")
+                button(class="bg-[#0088FF] py-[14px] px-[20px] rounded-[4px] font-[700] text-[16px] text-white cursor-pointer") Cập nhật
+    //- Hết Thông tin công ty (Nhà tuyển dụng)
+    
