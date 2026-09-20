@@ -1,0 +1,12 @@
+{
+  "name": "Tuyen-dung-it-pj3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "pug -w ./views/pages -o ./ -P"
+  },
+  "dependencies": {
+    "pug-cli": "^1.0.0-alpha6"
+  }
+}
