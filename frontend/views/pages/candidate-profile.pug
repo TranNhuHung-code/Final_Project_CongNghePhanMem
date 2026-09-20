@@ -1,0 +1,31 @@
+extends ../layouts/default.pug
+
+block title 
+    title Thông tin cá nhân (Ứng viên)
+
+block main
+    //- Thông tin cá nhân
+    div(class="py-[60px]")
+        .contain 
+            div(class="border border-[#DEDEDE] rounded-[8px] p-[20px]")
+                h1(class="font-[700] text-[20px] mb-[20px]") Thông tin cá nhân
+                form(class="") 
+                    div(class="")
+                        label(for="" class="font-[500] text-[14px]") Họ tên *
+                        input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")
+
+                    div(class="")
+                        label(for="" class="font-[500] text-[14px]") Avatar
+                        input(type="file" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")
+
+                    div(class="grid md:grid-cols-2 grid-cols-1 md:gap-[20px] gap-[15px]")
+                        div(class="")
+                            label(for="" class="font-[500] text-[14px]") Email *
+                            input(type="email" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")
+                        div(class="")
+                            label(for="" class="font-[500] text-[14px]") Số điện thoại
+                            input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")
+
+                div(class="")
+                    button(class="bg-[#0088FF] py-[14px] px-[20px] rounded-[4px] font-[700] text-[16px] text-white cursor-pointer") Cập nhật
+    //- Hết Thông tin cá nhân

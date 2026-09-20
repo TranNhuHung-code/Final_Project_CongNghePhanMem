@@ -1,0 +1,30 @@
+doctype html
+html(lang="vi")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css")
+        link(rel="stylesheet", href="assets/css/style.css")
+        script(src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4")
+        style(type="text/tailwindcss")
+            |@theme {
+            |    --breakpoint-*: initial;
+            |    --breakpoint-sm: 576px;
+            |    --breakpoint-md: 768px;
+            |    --breakpoint-lg: 992px;
+            |    --breakpoint-xl: 1200px;
+            |}
+        block title 
+    body
+        //- Header
+        include ../partials/header.pug
+        //- End Header
+
+        block main
+
+        //- Footer 
+        include ../partials/footer.pug
+        //- End Footer 
+
+        block scripts
+

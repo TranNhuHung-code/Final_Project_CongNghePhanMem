@@ -1,0 +1,51 @@
+extends ../layouts/default.pug
+
+block title 
+    title Kết quả tìm kiếm
+
+block main
+    //- Section 1
+    include ../partials/section1.pug
+    //- End Section 1
+
+    //- Kết quả tìm kiếm
+    div(class="py-[60px]")
+        .contain 
+            h2(class="font-[700] text-[28px] text-[#121212] mb-[30px]") 76 việc làm <span class="text-[#0088FF]">reactjs</span>
+            div(class="rounded-[8px] bg-white py-[10px] px-[20px] flex flex-wrap gap-[12px]" style="box-shadow: 0px 4px 20px 0px #0000000F;")
+                select(class="border border-[#DEDEDE] rounded-[20px] py-[8px] px-[18px] font-[400] text-[16px] text-[#414042]") 
+                    option(value="") Cấp bậc
+                    option(value="") Intern
+                    option(value="") Fresher
+                    option(value="") Junior
+                    option(value="") Middle
+                    option(value="") Senior
+                    option(value="") Manager
+                select(class="border border-[#DEDEDE] rounded-[20px] py-[8px] px-[18px] font-[400] text-[16px] text-[#414042]")
+                    option(value="") Hình thức làm việc 
+                    option(value="") Tại công ty 
+                    option(value="") Từ xa 
+                    option(value="") Linh hoạt
+
+            div(class="my-[30px] grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-[20px]") 
+                div(class="card-item")
+                    img(src="assets/images/bg-card.png" class="inner-bg")
+                    a(href="" class="inner-box") 
+                        div(class="py-[20px] px-[16px]")
+                            div(class="inner-img w-[116px]")
+                                img(src="assets/images/demo/image1.png" class="")
+                            h3(class="font-[700] text-[18px] text-[#121212] text-center line-clamp-[2] mb-[6px]") Frontend Engineer (ReactJS)
+                            div(class="font-[400] text-[14px] text-[#121212] text-center mb-[12px]") LG CNS Việt Nam
+                            div(class="font-[600] text-[16px] text-[#0088FF] text-center mb-[6px]") 1.000$ - 1.500$
+                            div(class="font-[400] text-[14px] text-[#121212] text-center") <i class="fa-solid fa-user-tie text-[16px] mr-[8px]"></i> Fresher
+                            div(class="font-[400] text-[14px] text-[#121212] text-center mt-[6px]") <i class="fa-solid fa-briefcase text-[16px] mr-[8px]"></i> Tại văn phòng
+                            div(class="font-[400] text-[14px] text-[#121212] text-center mt-[6px]") <i class="fa-solid fa-location-dot text-[16px] mr-[8px]"></i> Ha Noi
+                            div(class="mt-[12px] flex justify-center items-center flex-wrap gap-[12px]") 
+                                div(class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]") ReactJS
+                                div(class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]") NextJS
+                                div(class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]") Javascript        
+            select(class="border border-[#DEDEDE] bg-white rounded-[8px] py-[12px] px-[18px] font-[400] text-[16px] text-[#414042]") 
+                option(value="") Trang 1  
+                option(value="") Trang 2  
+                option(value="") Trang 3  
+    //- Hết kết quả tìm kiếm
