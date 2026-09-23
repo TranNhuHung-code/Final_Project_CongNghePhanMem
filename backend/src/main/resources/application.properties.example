@@ -1,9 +1,9 @@
 spring.application.name=Backend
 spring.datasource.url=jdbc:mysql://localhost:3306/itjobs_db
 spring.datasource.username=root
-spring.datasource.password=YOUR_DB_PASSWORD
+spring.datasource.password= pass của mysql 
 
-jwt.secret=YOUR_JWT_SECRET_AT_LEAST_32_CHARS
+jwt.secret=nhom6congnghephanmemfinalproject
 jwt.expiration=86400000
 
 spring.jpa.hibernate.ddl-auto=update
