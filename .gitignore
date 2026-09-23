@@ -38,5 +38,4 @@ out/
 
 ### Sensitive config ###
 **/application.properties
-
 node_modules/

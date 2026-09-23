@@ -1,20 +1,19 @@
-package VnITJobs.backend.entity;
-import jakarta.persistence.*;
+package VnITJobs.backend.dto.company;
+
+
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Table(name = "employers")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Employer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@AllArgsConstructor
+public class CompanyUpdateRequest {
 
-    @Column(name = "company_name")
+    @NotBlank
     private String companyName;
 
     private String logoUrl;
@@ -33,13 +32,5 @@ public class Employer {
 
     private String overtimePolicy;
 
-    @Lob
-    @Column(columnDefinition = "TEXT")
     private String description;
-
-
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", unique = true)
-    private User user;
-
 }
