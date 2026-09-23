@@ -37,4 +37,6 @@ out/
 .vscode/
 
 ### Sensitive config ###
-src/main/resources/application.properties
+**/application.properties
+
+node_modules/
