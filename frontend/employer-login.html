@@ -62,19 +62,20 @@
       <div class="contain"> 
         <div class="border border-[#DEDEDE] rounded-[8px] py-[50px] px-[20px] max-w-[602px] mx-auto">
           <h1 class="font-[700] text-[20px] text-center">Đăng nhập (Nhà tuyển dụng)</h1>
-          <form class="mt-[20px]"> 
+          <form class="mt-[20px]" id="employer-login-form"> 
             <div>
-              <label class="font-[500] text-[14px]" for="">Email *  </label>
-              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="email" id="">
+              <label class="font-[500] text-[14px]" for="email">Email *  </label>
+              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="email" id="email">
             </div>
             <div>
-              <label class="font-[500] text-[14px]" for="">Mật khẩu *</label>
-              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="password" id="">
+              <label class="font-[500] text-[14px]" for="password">Mật khẩu *</label>
+              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="password" id="password">
+            </div>
+            <p class="text-red-500 text-[14px] mb-[10px] hidden" id="error-message"></p>
+            <div> 
+              <button class="bg-[#0088FF] py-[14px] rounded-[4px] font-[700] text-[16px] text-white text-center w-full cursor-pointer" type="submit">Đăng nhập</button>
             </div>
           </form>
-          <div> 
-            <button class="bg-[#0088FF] py-[14px] rounded-[4px] font-[700] text-[16px] text-white text-center w-full cursor-pointer">Đăng nhập</button>
-          </div>
         </div>
       </div>
     </div>
@@ -84,5 +85,6 @@
         <div class="font-[400] text-[14px] text-[#A6A6A6] text-center">Copyright © IT VIEC JSC</div>
       </div>
     </footer>
+    <script src="assets/js/employer-login.js"></script>
   </body>
 </html>

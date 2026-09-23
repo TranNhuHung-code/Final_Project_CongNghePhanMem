@@ -61,66 +61,66 @@
     <div class="py-[60px]">    
       <div class="border border-[#DEDEDE] rounded-[8px] p-[20px]">
         <h1 class="font-[700] text-[20px] mb-[20px]">Thông tin công ty</h1>
-        <form> 
+        <form id="company-profile-form">
           <div>
             <label class="font-[500] text-[14px]" for="">Tên công ty *</label>
-            <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="text" id="">
+            <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" id="companyName" type="text">
           </div>
           <div>
-            <label class="font-[500] text-[14px]" for="">Logo</label>
-            <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="file" id="">
+            <label class="font-[500] text-[14px]" for="">Logo</label><img id="logoPreview" src="" class="w-[80px] h-[80px] object-cover rounded">
+            <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" id="logoFile" type="file">
           </div>
           <div class="grid md:grid-cols-2 grid-cols-1 md:gap-[20px] gap-[15px]">
             <div>
               <label class="font-[500] text-[14px]" for="">Thành phố</label>
-              <select class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full"> 
-                <option value="">Hà Nội </option>
-                <option value="">TP.HCM </option>
+              <select class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full" id="city">
+                <option value="Hà Nội">Hà Nội</option>
+                <option value="TP.HCM">TP.HCM</option>
               </select>
             </div>
             <div>
               <label class="font-[500] text-[14px]" for="">Địa chỉ</label>
-              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="text" id="">
+              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" id="address" type="text">
             </div>
           </div>
           <div class="grid md:grid-cols-2 grid-cols-1 md:gap-[20px] gap-[15px]">
             <div>
               <label class="font-[500] text-[14px]" for="">Mô hình công ty</label>
-              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full" type="text" id="">
+              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full" id="companyModel" type="text">
             </div>
             <div>
               <label class="font-[500] text-[14px]" for="">Quy mô công ty</label>
-              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="text" id="">
+              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" id="companySize">
             </div>
           </div>
           <div class="grid md:grid-cols-2 grid-cols-1 md:gap-[20px] gap-[15px]">
             <div>
               <label class="font-[500] text-[14px]" for="">Thời gian làm việc</label>
-              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full" type="text" id="">
+              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full" id="workingTime">
             </div>
             <div>
               <label class="font-[500] text-[14px]" for="">Làm việc ngoài giờ</label>
-              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="text" id="">
+              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" id="overtimePolicy">
             </div>
           </div>
           <div class="grid md:grid-cols-2 grid-cols-1 md:gap-[20px] gap-[15px]">
             <div>
               <label class="font-[500] text-[14px]" for="">Email *</label>
-              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full" type="email" id="">
+              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] md:mb-[15px] block w-full" type="email" id="email" readonly>
             </div>
             <div>
               <label class="font-[500] text-[14px]" for="">Số điện thoại</label>
-              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="text" id="">
+              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" id="phone" type="text">
             </div>
           </div>
           <div>
             <label class="font-[500] text-[14px]" for="">Mô tả chi tiết </label>
-            <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full min-h-[350px]" type="text" id="">
+            <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full min-h-[350px]" id="description" type="text">
+          </div>
+          <div>
+            <button class="bg-[#0088FF] py-[14px] px-[20px] rounded-[4px] font-[700] text-[16px] text-white cursor-pointer">Cập nhật</button>
           </div>
         </form>
-        <div>
-          <button class="bg-[#0088FF] py-[14px] px-[20px] rounded-[4px] font-[700] text-[16px] text-white cursor-pointer">Cập nhật</button>
-        </div>
       </div>
     </div>
     <footer class="bg-[#000065] py-[24px]">
@@ -129,5 +129,6 @@
         <div class="font-[400] text-[14px] text-[#A6A6A6] text-center">Copyright © IT VIEC JSC</div>
       </div>
     </footer>
+    <script src="assets/js/company-profile.js"></script>
   </body>
 </html>
