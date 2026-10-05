@@ -1,0 +1,11 @@
+package VnITJobs.backend.repository;
+
+import VnITJobs.backend.dto.job.JobResponse;
+import VnITJobs.backend.entity.Job;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface JobRepository extends JpaRepository<Job, Long> {
+    List<Job> findByEmployerId (Long employerId);
+}
