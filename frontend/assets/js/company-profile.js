@@ -70,8 +70,8 @@ async function loadCompanyData(){
         });
 
         if (response.ok) {
-            alert("Cập nhật thành công");
+            alert("Thông tin công ty đã được cập nhật thành công.");
         } else {
-            alert("Cập nhật thất bại");
+            alert("Không thể cập nhật thông tin công ty. Vui lòng thử lại sau.");
         }
     });
