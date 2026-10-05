@@ -21,5 +21,8 @@ public class Candidate {
     @JoinColumn(name = "user_id", referencedColumnName = "id", unique = true)
     private User user;
 
+    private String avatarUrl;
+    private String phone;
+
 }
 

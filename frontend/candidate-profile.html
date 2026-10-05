@@ -62,29 +62,29 @@
       <div class="contain"> 
         <div class="border border-[#DEDEDE] rounded-[8px] p-[20px]">
           <h1 class="font-[700] text-[20px] mb-[20px]">Thông tin cá nhân</h1>
-          <form> 
+          <form id="candidateProfileForm"> 
             <div>
-              <label class="font-[500] text-[14px]" for="">Họ tên *</label>
-              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="text" id="">
+              <label class="font-[500] text-[14px]" for="fullName">Họ tên *</label>
+              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="text" id="fullName">
             </div>
             <div>
-              <label class="font-[500] text-[14px]" for="">Avatar</label>
-              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="file" id="">
+              <label class="font-[500] text-[14px]" for="avatarFile">Avatar</label><img id="avatarPreview" src="" class="w-[80px] h-[80px] object-cover rounded">
+              <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="file" id="avatarFile">
             </div>
             <div class="grid md:grid-cols-2 grid-cols-1 md:gap-[20px] gap-[15px]">
               <div>
-                <label class="font-[500] text-[14px]" for="">Email *</label>
-                <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="email" id="">
+                <label class="font-[500] text-[14px]" for="email">Email *</label>
+                <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="email" id="email" readonly>
               </div>
               <div>
-                <label class="font-[500] text-[14px]" for="">Số điện thoại</label>
-                <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="text" id="">
+                <label class="font-[500] text-[14px]" for="phone">Số điện thoại</label>
+                <input class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full" type="text" id="phone">
               </div>
             </div>
+            <div>
+              <button class="bg-[#0088FF] py-[14px] px-[20px] rounded-[4px] font-[700] text-[16px] text-white cursor-pointer">Cập nhật</button>
+            </div>
           </form>
-          <div>
-            <button class="bg-[#0088FF] py-[14px] px-[20px] rounded-[4px] font-[700] text-[16px] text-white cursor-pointer">Cập nhật</button>
-          </div>
         </div>
       </div>
     </div>
@@ -94,5 +94,6 @@
         <div class="font-[400] text-[14px] text-[#A6A6A6] text-center">Copyright © IT VIEC JSC</div>
       </div>
     </footer>
+    <script src="assets/js/candidate-profile.js"></script>
   </body>
 </html>
