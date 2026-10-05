@@ -15,6 +15,7 @@ public class CompanyController {
     private final CompanyService companyService;
     public CompanyController(CompanyService companyService){this.companyService = companyService;}
 
+    
     @GetMapping("/me")
     public CompanyResponse getMyCompany(Authentication authentication) {
         Object principal = authentication.getPrincipal();
@@ -22,6 +23,7 @@ public class CompanyController {
         Long userId = Long.valueOf(userIdStr);
         return companyService.getMyCompany(userId);
     }
+
     @PatchMapping("/me")
     public CompanyResponse updateMyCompany(Authentication authentication,@RequestBody @Valid CompanyUpdateRequest companyUpdateRequest){
         Object principal = authentication.getPrincipal();

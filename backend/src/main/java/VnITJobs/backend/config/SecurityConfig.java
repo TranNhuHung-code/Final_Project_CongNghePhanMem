@@ -26,7 +26,14 @@ public class SecurityConfig {
     }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.authorizeHttpRequests(auth -> auth.requestMatchers("/api/auth/**").permitAll().anyRequest().authenticated());
+
+        httpSecurity.authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/error").permitAll()
+                .requestMatchers("/api/job/**").hasRole("EMPLOYER")
+                .anyRequest().authenticated()
+        );
+
         httpSecurity.csrf(csrf -> csrf.disable());
         httpSecurity.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         httpSecurity.cors(cors->cors.configurationSource(corsConfigurationSource()));
