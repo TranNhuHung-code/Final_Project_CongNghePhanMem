@@ -55,19 +55,24 @@ public class JobService {
 
         jobRepository.save(job);
 
-        JobResponse jobResponse = new JobResponse(
-                job.getId(),
-                job.getTitle(),
-                employer.getCompanyName(),
-                job.getMinSalary(),
-                job.getMaxSalary(),
-                job.getLevel(),
-                job.getImages(),
-                job.getWorkType(),
-                employer.getAddress(),
-                job.getTechnologies(),
-                job.getDescription()
-        );
+         JobResponse jobResponse = new JobResponse(
+                    job.getId(),
+                    job.getTitle(),
+                    employer.getCompanyName(),
+                    job.getMinSalary(),
+                    job.getMaxSalary(),
+                    job.getLevel(),
+                    job.getImages(),
+                    job.getWorkType(),
+                    employer.getAddress(),
+                    job.getTechnologies(),
+                    job.getDescription(),
+                    employer.getLogoUrl(),
+                    employer.getCompanyModel(),
+                    employer.getCompanySize(),
+                    employer.getWorkingTime(),
+                    employer.getOvertimePolicy()
+            );
 
         return jobResponse;
 
@@ -113,7 +118,12 @@ public class JobService {
                 job.getWorkType(),
                 employer.getAddress(),
                 job.getTechnologies(),
-                job.getDescription()
+                job.getDescription(),
+                employer.getLogoUrl(),
+                employer.getCompanyModel(),
+                employer.getCompanySize(),
+                employer.getWorkingTime(),
+                employer.getOvertimePolicy()
         );
         return jobResponse;
     }
@@ -138,7 +148,12 @@ public class JobService {
                     job.getWorkType(),
                     employer.getAddress(),
                     job.getTechnologies(),
-                    job.getDescription()
+                    job.getDescription(),
+                    employer.getLogoUrl(),
+                    employer.getCompanyModel(),
+                    employer.getCompanySize(),
+                    employer.getWorkingTime(),
+                    employer.getOvertimePolicy()
             );
             jobResponses.add(jobResponse);
         }
@@ -155,6 +170,29 @@ public class JobService {
 
         jobRepository.deleteById(jobId);
     }
+    public JobResponse getJob(Long jobId){
 
+        Job job = jobRepository.findById(jobId).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Không tìm thấy job"));
+        Employer employer = job.getEmployer();
+        JobResponse jobResponse = new JobResponse(
+                job.getId(),
+                job.getTitle(),
+                employer.getCompanyName(),
+                job.getMinSalary(),
+                job.getMaxSalary(),
+                job.getLevel(),
+                job.getImages(),
+                job.getWorkType(),
+                employer.getAddress(),
+                job.getTechnologies(),
+                job.getDescription(),
+                employer.getLogoUrl(),
+                employer.getCompanyModel(),
+                employer.getCompanySize(),
+                employer.getWorkingTime(),
+                employer.getOvertimePolicy()
+        );
+        return jobResponse;
+    }
 
 }

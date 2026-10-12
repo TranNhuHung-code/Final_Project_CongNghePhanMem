@@ -34,4 +34,8 @@ public class JobController {
     public void deleteJob(@PathVariable("jobId") Long jobId, Authentication authentication){
         jobService.deleteJob(jobId,authentication);
     }
+    @GetMapping("/public/{jobId}")
+    public JobResponse getJob(@PathVariable("jobId") Long jobId) {
+        return jobService.getJob(jobId);
+    }
 }

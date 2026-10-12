@@ -3,6 +3,7 @@ package VnITJobs.backend.config;
 import VnITJobs.backend.security.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,7 +31,11 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/error").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/job/public/**").permitAll()
                 .requestMatchers("/api/job/**").hasRole("EMPLOYER")
+                .requestMatchers("/api/application/apply").hasRole("CANDIDATE")
+                .requestMatchers("/api/application/me").hasRole("CANDIDATE")
+                .requestMatchers("/api/application/employer/**").hasRole("EMPLOYER")
                 .anyRequest().authenticated()
         );
 
