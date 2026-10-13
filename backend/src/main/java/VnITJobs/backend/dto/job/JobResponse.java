@@ -30,4 +30,10 @@ public class JobResponse {
     private String technologies;
 
     private String description;
+    
+    private String companyLogoUrl;
+    private String companyModel;
+    private String companySize;
+    private String companyWorkingTime;
+    private String companyOvertimePolicy;
 }

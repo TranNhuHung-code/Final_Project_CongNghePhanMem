@@ -11,79 +11,83 @@ block main
                 div(class="") 
                     //- Thông tin công việc
                     div(class="border border-[#DEDEDE] rounded-[8px] p-[20px]") 
-                        h1(class="font-[700] sm:text-[28px] text-[24px] text-[#121212] mb-[10px]") Front End Developer ( Javascript, ReactJS)
-                        div(class="font-[400] text-[16px] text-[#414042] mb-[10px]") LG CNS Việt Nam
-                        div(class="font-[700] text-[20px] text-[#0088FF] mb-[20px]") 1.000$ - 1.500$
+                        h1#job-title(class="font-[700] sm:text-[28px] text-[24px] text-[#121212] mb-[10px]") Đang tải công việc...
+                        div#job-company(class="font-[400] text-[16px] text-[#414042] mb-[10px]")
+                        div#job-salary(class="font-[700] text-[20px] text-[#0088FF] mb-[20px]")
                         a(href="#boxApply" class="bg-[#0088FF] rounded-[4px] p-[14px] font-[700] text-[16px] text-white block text-center") Ứng tuyển
 
-                        div(class="grid grid-cols-3 gap-[16px] mt-[20px]") 
-                            img(src="assets/images/demo/demo1.png" class="rounded-[4px]") 
-                            img(src="assets/images/demo/demo2.png" class="rounded-[4px]") 
-                            img(src="assets/images/demo/demo3.png" class="rounded-[4px]") 
+                        div#job-images(class="grid grid-cols-3 gap-[16px] mt-[20px]") 
 
                         div(class="mt-[20px]")
-                            div(class="font-[400] text-[14px] text-[#121212]") <i class="fa-solid fa-user-tie text-[16px] mr-[8px]"></i> Fresher
-                            div(class="font-[400] text-[14px] text-[#121212] mt-[6px]") <i class="fa-solid fa-briefcase text-[16px] mr-[8px]"></i> Tại văn phòng
-                            div(class="font-[400] text-[14px] text-[#121212] mt-[6px]") <i class="fa-solid fa-location-dot text-[16px] mr-[8px]"></i> Tầng 15, tòa Keangnam Landmark 72, Mễ Trì, Nam Tu Liem, Ha Noi
+                            div(class="font-[400] text-[14px] text-[#121212]") <i class="fa-solid fa-user-tie text-[16px] mr-[8px]"></i> <span id="job-level"></span>
+                            div(class="font-[400] text-[14px] text-[#121212] mt-[6px]") <i class="fa-solid fa-briefcase text-[16px] mr-[8px]"></i> <span id="job-work-type"></span>
+                            div(class="font-[400] text-[14px] text-[#121212] mt-[6px]") <i class="fa-solid fa-location-dot text-[16px] mr-[8px]"></i> <span id="job-address"></span>
                         
-                        div(class="flex flex-wrap gap-[8px] mt-[10px]")
-                            div(class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]") ReactJS
-                            div(class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]") NextJS
-                            div(class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]") Javascript
+                        div#job-technologies(class="flex flex-wrap gap-[8px] mt-[10px]")
                     //- Hết Thông tin công việc
 
                     //- Mô tả chi tiết
-                    div(class="border border-[#DEDEDE] rounded-[8px] p-[20px] mt-[20px]")
-                        p(class="") Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    div(class="border border-[#DEDEDE] rounded-[8px] p-[20px] mt-[20px]") 
+                        p#job-description(class="")
                     //- Hết Mô tả chi tiết
-
                     //- Form ứng tuyển
-                    div(id="boxApply" class="border border-[#DEDEDE] rounded-[8px] p-[20px] mt-[20px]")
-                        h2(class="font-[700] text-[20px] text-black mb-[20px]") Ứng tuyển ngay
-                        form(class="grid gap-[15px]")
-                            div(class="")
-                                label(for="" class="font-[500] text-[14px]") Họ tên *
-                                input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] px-[20px] py-[12px] font-[500] text-[14px] text-black block w-full mt-[5px]")
+                    form#apply-form(class="grid gap-[15px]")
+                        div
+                            label(for="cvFile" class="font-[500] text-[14px]")
+                                | File CV dạng PDF *
 
-                            div(class="")
-                                label(for="" class="font-[500] text-[14px]") Email *
-                                input(type="email" id="" class="border border-[#DEDEDE] rounded-[4px] px-[20px] py-[12px] font-[500] text-[14px] text-black block w-full mt-[5px]")
+                            input#cvFile(
+                                type="file"
+                                accept=".pdf,application/pdf"
+                                required
+                                class="border border-[#DEDEDE] rounded-[4px] px-[20px] py-[12px] font-[500] text-[14px] text-black block w-full mt-[5px]"
+                            )
 
-                            div(class="")
-                                label(for="" class="font-[500] text-[14px]") Số điện thoại *
-                                input(type="text" id="" class="border border-[#DEDEDE] rounded-[4px] px-[20px] py-[12px] font-[500] text-[14px] text-black block w-full mt-[5px]")
+                        p#apply-message(class="hidden")
 
-                            div(class="")
-                                label(for="" class="font-[500] text-[14px]") File CV dạng PDF *
-                                input(type="file" id="" class="border border-[#DEDEDE] rounded-[4px] px-[20px] py-[12px] font-[500] text-[14px] text-black block w-full mt-[5px]")
-
-                            div(class="")
-                                button(class="bg-[#0088FF] p-[14px] rounded-[4px] w-full font-[700] text-[16px] text-white text-center cursor-pointer") Gửi CV ứng tuyển
+                        div
+                            button(
+                                type="submit"
+                                class="bg-[#0088FF] p-[14px] rounded-[4px] w-full font-[700] text-[16px] text-white text-center cursor-pointer"
+                            ) Gửi CV ứng tuyển
                     //- Hết Form ứng tuyển
-
                 div(class="") 
                     //- Thông tin công ty
                     div(class="p-[20px] border border-[#DEDEDE] rounded-[8px]")
                         div(class="flex gap-[12px] mb-[20px]")
-                            img(src="assets/images/demo/demo4.png" class="w-[100px] rounded-[4px]")
-                            div(class="")
-                                div(class="font-[700] text-[18px] text-[#121212] mb-[10px]") LG CNS Việt Nam
-                                a(href="" class="font-[400] text-[16px] text-[#0088FF]") Xem công ty <i class="fa-solid fa-arrow-right-long ml-[4px]"></i>
+                            img#company-logo(
+                                src="assets/images/demo/demo4.png"
+                                class="w-[100px] rounded-[4px]"
+                                alt="Logo công ty"
+                            )
+                            div
+                                div#company-name(
+                                    class="font-[700] text-[18px] text-[#121212] mb-[10px]"
+                                )
+                                a(
+                                    href="#"
+                                    class="font-[400] text-[16px] text-[#0088FF]"
+                                ) Xem công ty
 
-                        div(class="")
+                        div
                             div(class="flex justify-between mb-[10px]")
                                 div(class="font-[400] text-[16px] text-[#A6A6A6]") Mô hình công ty
-                                div(class="font-[400] text-[16px] text-[#121212]") Sản phẩm
+                                div#company-model(class="font-[400] text-[16px] text-[#121212]")
+
                             div(class="flex justify-between mb-[10px]")
                                 div(class="font-[400] text-[16px] text-[#A6A6A6]") Quy mô công ty
-                                div(class="font-[400] text-[16px] text-[#121212]") 151 - 300 nhân viên
+                                div#company-size(class="font-[400] text-[16px] text-[#121212]")
+
                             div(class="flex justify-between mb-[10px]")
                                 div(class="font-[400] text-[16px] text-[#A6A6A6]") Thời gian làm việc
-                                div(class="font-[400] text-[16px] text-[#121212]") Thứ 2 - Thứ 6
+                                div#company-working-time(class="font-[400] text-[16px] text-[#121212]")
+
                             div(class="flex justify-between")
                                 div(class="font-[400] text-[16px] text-[#A6A6A6]") Làm việc ngoài giờ
-                                div(class="font-[400] text-[16px] text-[#121212]") Không có OT
+                                div#company-overtime-policy(class="font-[400] text-[16px] text-[#121212]")
 
                     //- Hết Thông tin công ty
 
     //- Hết Chi tiết công việc
+block scripts
+    script(src="assets/js/job-details.js")
