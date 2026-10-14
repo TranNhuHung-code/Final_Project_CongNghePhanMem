@@ -13,7 +13,7 @@ form.addEventListener("submit", async function (event) {
     const password = passwordInput.value;
 
     // 4. Gọi API backend
-    const response = await fetch("http://localhost:8080/api/auth/login", {
+    const response = await fetch("http://localhost:8080/api/auth/login/candidate", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -32,7 +32,7 @@ form.addEventListener("submit", async function (event) {
         window.location.href = "index.html"; // Chuyển hướng sau khi đăng nhập thành công
     } else {
         // Thất bại (401, 409, 500...) -> hiện thông báo lỗi cho người dùng thấy
-        errorMessage.textContent = data.message || "Đăng nhập thất bại, vui lòng thử lại";
+        errorMessage.textContent = data.message || "Vui lòng kiểm tra email, mật khẩu và loại tài khoản đã chọn";
         errorMessage.classList.remove("hidden");
     }
 });
