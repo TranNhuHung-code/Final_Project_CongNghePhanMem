@@ -73,7 +73,7 @@
             EmployerRegisterResponse employerRegisterResponse = new EmployerRegisterResponse(user.getId(), employer.getCompanyName(), user.getEmail(), user.getRole());
             return employerRegisterResponse;
         }
-        public LoginResponse login(LoginRequest request){
+        public LoginResponse login(LoginRequest request, Role expectedRole) {
             String email = request.getEmail();
             Optional<User> kq = userRepository.findByEmail(email);
             if(kq.isEmpty()) {
@@ -86,6 +86,7 @@
             if(!passwordEncoder.matches(rawInputPassword,user.getPassword())){
                 throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "email hoac mat khau khong dung");
             }
+            if (user.getRole() != expectedRole) throw new ResponseStatusException( HttpStatus.FORBIDDEN, "Tai khoan khong dung loai cho trang dang nhap nay");
             LoginResponse loginResponse = new LoginResponse(user.getId(),user.getRole(),jwtUtil.createToken(user.getId(),user.getRole()));
             return loginResponse;
         }

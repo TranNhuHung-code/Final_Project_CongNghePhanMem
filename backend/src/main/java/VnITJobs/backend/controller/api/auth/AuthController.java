@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import VnITJobs.backend.entity.Role;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -26,8 +27,13 @@ public class AuthController {
         return authService.registerEmployer(request);
     }
 
-    @PostMapping("/login")
-    public LoginResponse login(@Valid @RequestBody LoginRequest request){
-        return authService.login(request);
-    }
+    @PostMapping("/login/candidate")
+public LoginResponse candidateLogin( @Valid @RequestBody LoginRequest request) {
+    return authService.login(request, Role.CANDIDATE);
+}
+
+@PostMapping("/login/employer")
+public LoginResponse employerLogin(@Valid @RequestBody LoginRequest request) {
+    return authService.login(request, Role.EMPLOYER);
+}
 }
