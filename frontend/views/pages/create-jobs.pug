@@ -43,8 +43,7 @@ block main
 
                     div(class="mb-[15px]")
                         label(for="" class="font-[500] text-[14px] mb-[5px]") Danh sách ảnh *
-                        input(type="file" id="imageFiles" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")
-
+                        input#imageFiles(type="file" accept="image/png,image/jpeg,image/webp" multiple)
                     div(class="mb-[15px]")
                         label(for="" class="font-[500] text-[14px] mb-[5px]") Mô tả chi tiết
                         textarea(id="description" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full min-h-[350px]") 

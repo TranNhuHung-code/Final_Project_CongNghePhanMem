@@ -137,11 +137,8 @@ async function sendEmployerApplicationRequest(
 async function markApplicationViewed(application) {
     // Mở CV ngay trong thao tác click nếu có URL
     if (application.cvFileUrl) {
-        window.open(
-            application.cvFileUrl,
-            "_blank",
-            "noopener,noreferrer"
-        );
+        const cvUrl = new URL(application.cvFileUrl, "http://localhost:8080").href;
+        window.open(cvUrl, "_blank", "noopener,noreferrer");
     }
 
     try {
