@@ -33,9 +33,9 @@ public class SecurityConfig {
                 .requestMatchers("/error").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/job/public/**").permitAll()
                 .requestMatchers("/api/job/**").hasRole("EMPLOYER")
-                .requestMatchers("/api/application/apply").hasRole("CANDIDATE")
                 .requestMatchers("/api/application/me").hasRole("CANDIDATE")
                 .requestMatchers("/api/application/employer/**").hasRole("EMPLOYER")
+                .requestMatchers(HttpMethod.GET, "/uploads/avatar/**", "/uploads/logo/**", "/uploads/job/**", "/uploads/cv/**").permitAll()
                 .anyRequest().authenticated()
         );
 

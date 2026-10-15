@@ -1,6 +1,10 @@
+const API_ORIGIN = "http://localhost:8080";
+const MAX_IMAGES = 4;
+const MAX_IMAGE_SIZE = 15 * 1024 * 1024;
+
 const token = localStorage.getItem("token");
 if (!token) {
-    window.location.href = "employer-login.html"; 
+    window.location.href = "employer-login.html";
 }
 const form = document.getElementById("create-job-form");
 
@@ -13,10 +17,49 @@ const technologiesInput = document.getElementById("technologies");
 const imageFilesInput = document.getElementById("imageFiles");
 const descriptionInput = document.getElementById("description");
 
+// Upload lần lượt từng ảnh, trả về chuỗi "url1,url2,..."
+async function uploadJobImages(files) {
+    const urls = [];
+    for (const file of files) {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("type", "job");
+
+        const response = await fetch(`${API_ORIGIN}/api/upload/image`, {
+            method: "POST",
+            headers: { "Authorization": `Bearer ${token}` }, // không tự set Content-Type
+            body: formData
+        });
+        if (!response.ok) {
+            throw new Error(await response.text());
+        }
+        urls.push((await response.json()).url);
+    }
+    return urls.join(",");
+}
+
 form.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const response = await fetch("http://localhost:8080/api/job/me", {
+    const files = Array.from(imageFilesInput.files);
+    if (files.length > MAX_IMAGES) {
+        alert(`Chỉ được chọn tối đa ${MAX_IMAGES} ảnh`);
+        return;
+    }
+    if (files.some(f => f.size > MAX_IMAGE_SIZE)) {
+        alert("Mỗi ảnh tối đa 2 MB");
+        return;
+    }
+
+    let images = "";
+    try {
+        images = await uploadJobImages(files);
+    } catch (error) {
+        alert("Upload ảnh thất bại: " + error.message);
+        return;
+    }
+
+    const response = await fetch(`${API_ORIGIN}/api/job/me`, {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${token}`,
@@ -29,13 +72,11 @@ form.addEventListener("submit", async function (event) {
             level: levelInput.value,
             workType: workTypeInput.value,
             technologies: technologiesInput.value,
-            images: "",
+            images: images,
             description: descriptionInput.value
         })
     });
     if (response.ok) {
-        console.log("STATUS:", response.status);
-        console.log("RESPONSE:", await response.text());
         window.location.href = "manage-jobs.html";
     } else {
         const text = await response.text();
@@ -43,5 +84,4 @@ form.addEventListener("submit", async function (event) {
         console.log("RESPONSE:", text);
         alert("Tạo tin thất bại: " + text);
     }
-    
 });

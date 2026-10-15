@@ -16,8 +16,8 @@ block main
 
                     div(class="")
                         label(for="avatarFile" class="font-[500] text-[14px]") Avatar
-                        <img id="avatarPreview" src="" class="w-[80px] h-[80px] object-cover rounded">
-                        input(type="file" id="avatarFile" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")
+                        img#avatarPreview(alt="Ảnh đại diện" class="hidden w-[80px] h-[80px] object-cover rounded")
+                        input(type="file" id="avatarFile" accept="image/png,image/jpeg,image/webp" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] mt-[5px] mb-[15px] block w-full")
 
                     div(class="grid md:grid-cols-2 grid-cols-1 md:gap-[20px] gap-[15px]")
                         div(class="")

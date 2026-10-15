@@ -11,6 +11,31 @@ if (!jobId) {
 
 const form = document.getElementById("create-job-form");
 
+const API_ORIGIN = "http://localhost:8080";
+const MAX_IMAGES = 4;
+const MAX_IMAGE_SIZE = 2 * 1024 * 1024;
+let currentImages = "";   // ảnh hiện có của job, dạng "url1,url2"
+
+async function uploadJobImages(files) {
+    const urls = [];
+    for (const file of files) {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("type", "job");
+
+        const response = await fetch(`${API_ORIGIN}/api/upload/image`, {
+            method: "POST",
+            headers: { "Authorization": `Bearer ${token}` },
+            body: formData
+        });
+        if (!response.ok) {
+            throw new Error(await response.text());
+        }
+        urls.push((await response.json()).url);
+    }
+    return urls.join(",");
+}
+
 const titleInput = document.getElementById("title");
 const minSalaryInput = document.getElementById("minSalary");
 const maxSalaryInput = document.getElementById("maxSalary");
@@ -46,6 +71,7 @@ async function loadJobData() {
         workTypeInput.value = job.workType || "";
         technologiesInput.value = job.technologies || "";
         descriptionInput.value = job.description || "";
+        currentImages = job.images || "";
     } else {
         const text = await response.text();
         console.log(response.status, text);

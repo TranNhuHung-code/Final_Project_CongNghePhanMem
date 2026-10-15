@@ -60,9 +60,13 @@ function formatDate(dateValue) {
 }
 
 // Chỉ cho phép mở URL HTTP/HTTPS
+const CV_BASE_ORIGIN = "http://localhost:8080";   // đặt tên khác nếu file đã có biến tương tự
+
 function getSafeUrl(value) {
+    if (!value) return null;
     try {
-        const url = new URL(value);
+        // Có địa chỉ gốc để xử lý được cả "/uploads/cv/x.pdf" lẫn URL đầy đủ
+        const url = new URL(value, CV_BASE_ORIGIN);
 
         if (url.protocol === "http:" || url.protocol === "https:") {
             return url.href;
