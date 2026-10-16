@@ -106,9 +106,9 @@ async function loadCandidateData() {
         );
 
         if (!response.ok) {
-            throw new Error(
-                `HTTP ${response.status}: ${await response.text()}`
-            );
+            const message = await getApiErrorMessage(response);
+            alert(message);
+            return;
         }
 
         const candidateData = await response.json();
@@ -222,13 +222,8 @@ if (avatarFileInput) {
                 );
 
                 if (!response.ok) {
-                    const errorBody = await response.text();
-
-                    throw new Error(
-                        `HTTP ${response.status}: ${
-                            errorBody || response.statusText
-                        }`
-                    );
+                    const message = await getApiErrorMessage(response);
+                    throw new Error(message);
                 }
 
                 // QUAN TRỌNG: đọc JSON trước khi dùng data.url
@@ -324,13 +319,9 @@ if (form) {
             );
 
             if (!response.ok) {
-                const errorBody = await response.text();
-
-                throw new Error(
-                    `HTTP ${response.status}: ${
-                        errorBody || response.statusText
-                    }`
-                );
+                const message = await getApiErrorMessage(response);
+                alert(message);
+                return;
             }
 
             alert("Thông tin ứng viên đã được cập nhật thành công.");

@@ -19,12 +19,13 @@ form.addEventListener("submit", async function (event) {
         body: JSON.stringify({ companyName: companyName, email: email, password: password })
     });
 
-    const data = await response.json();
-
     if (response.ok) {
+        alert("Đăng ký thành công! Vui lòng đăng nhập.");
         window.location.href = "employer-login.html";
     } else {
-        errorMessage.textContent = data.message || "Đăng ký thất bại, vui lòng thử lại";
+        const message = await getApiErrorMessage(response);
+
+        errorMessage.textContent = message;
         errorMessage.classList.remove("hidden");
     }
 });

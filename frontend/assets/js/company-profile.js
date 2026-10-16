@@ -34,24 +34,25 @@ async function loadCompanyData() {
             "Content-Type": "application/json"
         }
     });
+    if (!response.ok) {
+        const message = await getApiErrorMessage(response);
+        alert(message);
+        return;
+    }
     const companyData = await response.json();
 
-    if (response.ok) {
-        companyNameInput.value = companyData.companyName;
-        cityInput.value = companyData.city;
-        logoPath = companyData.logoUrl || "";
-        logoPreview.src = toFullUrl(logoPath);
-        addressInput.value = companyData.address;
-        emailInput.value = companyData.email;
-        companyModelInput.value = companyData.companyModel;
-        companySizeInput.value = companyData.companySize;
-        workingTimeInput.value = companyData.workingTime;
-        overtimePolicyInput.value = companyData.overtimePolicy;
-        phoneInput.value = companyData.phone;
-        descriptionInput.value = companyData.description;
-    } else {
-        alert("Không thể tải dữ liệu công ty. Vui lòng thử lại sau.");
-    }
+    companyNameInput.value = companyData.companyName;
+    cityInput.value = companyData.city;
+    logoPath = companyData.logoUrl || "";
+    logoPreview.src = toFullUrl(logoPath);
+    addressInput.value = companyData.address;
+    emailInput.value = companyData.email;
+    companyModelInput.value = companyData.companyModel;
+    companySizeInput.value = companyData.companySize;
+    workingTimeInput.value = companyData.workingTime;
+    overtimePolicyInput.value = companyData.overtimePolicy;
+    phoneInput.value = companyData.phone;
+    descriptionInput.value = companyData.description;
 }
 loadCompanyData();
 
@@ -77,7 +78,8 @@ logoFileInput.addEventListener("change", async function () {
     });
 
     if (!response.ok) {
-        alert("Upload logo thất bại: " + await response.text());
+        const message = await getApiErrorMessage(response);
+        alert(message);
         return;
     }
 
@@ -114,6 +116,7 @@ form.addEventListener("submit", async function (event) {
     if (response.ok) {
         alert("Thông tin công ty đã được cập nhật thành công.");
     } else {
-        alert("Không thể cập nhật thông tin công ty. Vui lòng thử lại sau.");
+        const message = await getApiErrorMessage(response);
+        alert(message);
     }
 });

@@ -178,13 +178,10 @@ async function loadMyApplications() {
             }
         });
 
-        if (response.status === 401 || response.status === 403) {
-            showMessage("Phiên đăng nhập không hợp lệ hoặc bạn không có quyền.", true);
-            return;
-        }
-
         if (!response.ok) {
-            throw new Error(`Lỗi API: HTTP ${response.status}`);
+                const message = await getApiErrorMessage(response);
+                showMessage(message, true);
+                return;
         }
 
         const applications = await response.json();

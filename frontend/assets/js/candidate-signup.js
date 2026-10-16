@@ -19,13 +19,14 @@ form.addEventListener("submit", async function (event) {
         body: JSON.stringify({ fullName: fullName, email: email, password: password })
     });
 
-    const data = await response.json();
-
     if (response.ok) {
-        // Đăng ký xong, chuyển sang trang login để người dùng tự đăng nhập
+        // Đăng ký thành công, chuyển sang trang đăng nhập
+        alert("Đăng ký thành công! Vui lòng đăng nhập.");
         window.location.href = "candidate-login.html";
     } else {
-        errorMessage.textContent = data.message || "Đăng ký thất bại, vui lòng thử lại";
+        const message = await getApiErrorMessage(response);
+
+        errorMessage.textContent = message;
         errorMessage.classList.remove("hidden");
     }
 });

@@ -13,17 +13,16 @@ const applicationsContainer = document.getElementById(
 // ==================================================
 
 // Hiển thị thông báo trên trang
-function showMessage(message) {
-    if (!applicationsContainer) {
-        console.error("Không tìm thấy applications-container.");
-        return;
-    }
+function showMessage(message, isError = false) {
+    if (!applicationsContainer) return;
 
     const paragraph = document.createElement("p");
 
     paragraph.id = "applications-message";
-    paragraph.className =
-        "col-span-full text-center text-[#666]";
+    paragraph.className = isError
+        ? "col-span-full text-center text-red-500"
+        : "col-span-full text-center text-[#666]";
+
     paragraph.textContent = message;
 
     applicationsContainer.replaceChildren(paragraph);
@@ -120,11 +119,8 @@ async function sendEmployerApplicationRequest(
     const response = await fetch(url, options);
 
     if (!response.ok) {
-        const errorBody = await response.text();
-
-        throw new Error(
-            `HTTP ${response.status}: ${errorBody || response.statusText}`
-        );
+        const message = await getApiErrorMessage(response);
+        throw new Error(message);
     }
 
     // Các API cập nhật và xóa hiện không cần đọc response body
@@ -236,7 +232,7 @@ async function deleteApplicationCard(applicationId) {
         console.error("Lỗi xóa đơn ứng tuyển:", error);
 
         alert(
-            "Không thể xóa đơn ứng tuyển: " + error.message
+            error.message || "Không thể xóa đơn ứng tuyển. Vui lòng thử lại."
         );
     }
 }
@@ -431,11 +427,8 @@ async function loadApplications() {
         );
 
         if (!response.ok) {
-            const errorBody = await response.text();
-
-            throw new Error(
-                `HTTP ${response.status}: ${errorBody || response.statusText}`
-            );
+            const message = await getApiErrorMessage(response);
+            throw new Error(message);
         }
 
         const applications = await response.json();
@@ -456,7 +449,8 @@ async function loadApplications() {
         console.error("Lỗi tải đơn ứng tuyển:", error);
 
         showMessage(
-            "Không thể tải danh sách CV. Vui lòng thử lại."
+            error.message || "Không thể tải danh sách CV. Vui lòng thử lại.",
+            true
         );
     }
 }

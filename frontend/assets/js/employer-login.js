@@ -17,14 +17,17 @@ form.addEventListener("submit", async function (event) {
         body: JSON.stringify({ email: email, password: password })
     });
 
-    const data = await response.json();
-
     if (response.ok) {
+        const data = await response.json();
+
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.role);
+        alert("Đăng nhập thành công!");
         window.location.href = "index.html";
     } else {
-        errorMessage.textContent = data.message || "Vui lòng kiểm tra email, mật khẩu và loại tài khoản đã chọn.";
+        const message = await getApiErrorMessage(response);
+
+        errorMessage.textContent = message;
         errorMessage.classList.remove("hidden");
     }
 });
