@@ -1,0 +1,68 @@
+
+extends ../layouts/default.pug
+
+block title
+    title Cập nhật công việc (Nhà tuyển dụng)
+
+block main
+    //- Cập nhật công việc
+    div(class="py-[60px]")
+        .contain
+            div(class="border border-[#DEDEDE] rounded-[8px] p-[20px]")
+                div(class="flex flex-col sm:flex-row justify-between mb-[20px] gap-[20px]")
+                    h1(class="font-[700] text-[20px]") Cập nhật công việc
+                    a(href="manage-jobs.html" class="font-[400] text-[14px] text-[#0088FF] underline") Quay lại danh sách
+
+                form(class="mt-[20px]" id="create-job-form")
+                    div(class="mb-[15px]")
+                        label(for="title" class="font-[500] text-[14px] mb-[5px]") Tên công việc *
+                        input(type="text" id="title" required class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")
+
+                    div(class="grid sm:grid-cols-2 grid-cols-1 sm:gap-[20px] gap-[15px] mb-[15px]")
+                        div
+                            label(for="minSalary" class="font-[500] text-[14px] mb-[5px]") Mức lương tối thiểu ($)
+                            input(type="number" id="minSalary" min="0" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")
+                        div
+                            label(for="maxSalary" class="font-[500] text-[14px] mb-[5px]") Mức lương tối đa ($)
+                            input(type="number" id="maxSalary" min="0" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")
+
+                    div(class="grid sm:grid-cols-2 grid-cols-1 sm:gap-[20px] gap-[15px] mb-[15px]")
+                        div
+                            label(for="level" class="font-[500] text-[14px] mb-[5px]") Cấp bậc *
+                            select(id="level" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")
+                                option(value="Intern") Intern
+                                option(value="Middle") Middle
+                        div
+                            label(for="workType" class="font-[500] text-[14px] mb-[5px]") Hình thức làm việc *
+                            select(id="workType" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")
+                                option(value="Tại văn phòng") Tại văn phòng
+                                option(value="Từ xa") Từ xa
+
+                    div(class="mb-[15px]")
+                        label(for="technologies" class="font-[500] text-[14px] mb-[5px]") Các công nghệ
+                        input(type="text" id="technologies" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full")
+
+                    div(class="mb-[15px]")
+                        label(class="font-[500] text-[14px] mb-[5px] block") Ảnh công việc hiện tại
+                        div#current-job-images(class="grid grid-cols-2 sm:grid-cols-4 gap-[12px]")
+                        div(class="mb-[15px]")
+                        label(for="imageFiles" class="font-[500] text-[14px] mb-[5px] block") Chọn ảnh mới
+                        input#imageFiles(
+                            type="file"
+                            accept="image/png,image/jpeg,image/webp"
+                            multiple
+                            class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full"
+                        )
+                        p(class="text-[12px] text-[#666] mt-[6px]") Chọn tối đa 4 ảnh, mỗi ảnh tối đa 15 MB. Nếu không chọn, ảnh cũ sẽ được giữ nguyên.
+
+                    div(class="mb-[15px]")
+                        label(for="description" class="font-[500] text-[14px] mb-[5px]") Mô tả chi tiết
+                        textarea(id="description" class="border border-[#DEDEDE] rounded-[4px] py-[11px] px-[20px] block w-full min-h-[350px]")
+
+                    div
+                        button(type="submit" class="bg-[#0088FF] rounded-[4px] py-[14px] px-[20px] font-[700] text-[16px] text-white cursor-pointer") Cập nhật
+
+    //- Hết cập nhật công việc
+
+block scripts
+    script(src="assets/js/update-jobs.js")

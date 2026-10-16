@@ -135,11 +135,8 @@ async function loadJobDetails() {
         );
 
         if (!response.ok) {
-            if (response.status === 404) {
-                throw new Error("Không tìm thấy công việc này.");
-            }
-
-            throw new Error(`Tải công việc thất bại (HTTP ${response.status}).`);
+           const message = await getApiErrorMessage(response);
+            throw new Error(message);
         }
 
         const job = await response.json();
@@ -272,26 +269,16 @@ if (applyForm) {
             );
 
             if (!response.ok) {
-                const errorBody = await response.text();
-
-                if (response.status === 409) {
-                    throw new Error("Bạn đã ứng tuyển công việc này rồi.");
-                }
-
-                throw new Error(
-                    `HTTP ${response.status}: ${errorBody || response.statusText}`
-                );
+                const message = await getApiErrorMessage(response);
+                throw new Error(message);
             }
 
-            await response.json();
-
             showApplyMessage("Ứng tuyển thành công!", false);
-            applyForm.reset();
-
+            
         } catch (error) {
             console.error("Lỗi ứng tuyển:", error);
             showApplyMessage(
-                "Không thể gửi đơn ứng tuyển. " + error.message,
+                error.message || "Không thể gửi đơn ứng tuyển.",
                 true
             );
         } finally {

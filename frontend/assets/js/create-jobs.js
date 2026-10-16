@@ -31,7 +31,8 @@ async function uploadJobImages(files) {
             body: formData
         });
         if (!response.ok) {
-            throw new Error(await response.text());
+            const message = await getApiErrorMessage(response);
+            throw new Error(message);
         }
         urls.push((await response.json()).url);
     }
@@ -47,7 +48,7 @@ form.addEventListener("submit", async function (event) {
         return;
     }
     if (files.some(f => f.size > MAX_IMAGE_SIZE)) {
-        alert("Mỗi ảnh tối đa 2 MB");
+        alert("Mỗi ảnh tối đa 15 MB");
         return;
     }
 
@@ -79,9 +80,8 @@ form.addEventListener("submit", async function (event) {
     if (response.ok) {
         window.location.href = "manage-jobs.html";
     } else {
-        const text = await response.text();
-        console.log("STATUS:", response.status);
-        console.log("RESPONSE:", text);
-        alert("Tạo tin thất bại: " + text);
+        const message = await getApiErrorMessage(response);
+        alert(message);
+        return;
     }
 });

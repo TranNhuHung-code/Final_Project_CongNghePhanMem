@@ -22,17 +22,19 @@ form.addEventListener("submit", async function (event) {
     });
 
     // 5. Đọc phần thân (body) của response, chuyển từ JSON string thành object JS
-    const data = await response.json();
 
     // 6. Kiểm tra request có thành công không
-    if (response.ok) {
-        // response.ok là true khi status nằm trong khoảng 200-299
+   if (response.ok) {
+        const data = await response.json();
+
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.role);
-        window.location.href = "index.html"; // Chuyển hướng sau khi đăng nhập thành công
+        alert("Đăng nhập thành công!");
+        window.location.href = "index.html";
     } else {
-        // Thất bại (401, 409, 500...) -> hiện thông báo lỗi cho người dùng thấy
-        errorMessage.textContent = data.message || "Vui lòng kiểm tra email, mật khẩu và loại tài khoản đã chọn";
+        const message = await getApiErrorMessage(response);
+
+        errorMessage.textContent = message;
         errorMessage.classList.remove("hidden");
     }
 });
