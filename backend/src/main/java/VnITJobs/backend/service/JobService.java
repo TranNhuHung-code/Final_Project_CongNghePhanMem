@@ -71,7 +71,9 @@ public class JobService {
                     employer.getCompanyModel(),
                     employer.getCompanySize(),
                     employer.getWorkingTime(),
-                    employer.getOvertimePolicy()
+                    employer.getOvertimePolicy(),
+                    employer.getId(),
+                    employer.getCity()
             );
 
         return jobResponse;
@@ -123,7 +125,9 @@ public class JobService {
                 employer.getCompanyModel(),
                 employer.getCompanySize(),
                 employer.getWorkingTime(),
-                employer.getOvertimePolicy()
+                employer.getOvertimePolicy(),
+                employer.getId(),
+                employer.getCity()
         );
         return jobResponse;
     }
@@ -153,7 +157,9 @@ public class JobService {
                     employer.getCompanyModel(),
                     employer.getCompanySize(),
                     employer.getWorkingTime(),
-                    employer.getOvertimePolicy()
+                    employer.getOvertimePolicy(),
+                    employer.getId(),
+                    employer.getCity()
             );
             jobResponses.add(jobResponse);
         }
@@ -190,9 +196,56 @@ public class JobService {
                 employer.getCompanyModel(),
                 employer.getCompanySize(),
                 employer.getWorkingTime(),
-                employer.getOvertimePolicy()
+                employer.getOvertimePolicy(),
+                employer.getId(),
+                employer.getCity()
         );
         return jobResponse;
+    }
+    public List<JobResponse> getPublicJobs (String keyword, String city, String level, String workType, Long companyId){
+        if (keyword == null || keyword.isBlank()) {
+            keyword = null;
+        }
+
+        if (city == null || city.isBlank()) {
+            city = null;
+        }
+
+        if (level == null || level.isBlank()) {
+            level = null;
+        }
+
+        if (workType == null || workType.isBlank()) {
+            workType = null;
+        }
+
+        List<Job> jobList = jobRepository.searchJobs(keyword, city, level, workType, companyId);
+        List<JobResponse> jobResponseList = new ArrayList<>();
+        for(Job job : jobList){
+            Employer employer = job.getEmployer();
+            JobResponse jobResponse = new JobResponse(
+                    job.getId(),
+                    job.getTitle(),
+                    employer.getCompanyName(),
+                    job.getMinSalary(),
+                    job.getMaxSalary(),
+                    job.getLevel(),
+                    job.getImages(),
+                    job.getWorkType(),
+                    employer.getAddress(),
+                    job.getTechnologies(),
+                    job.getDescription(),
+                    employer.getLogoUrl(),
+                    employer.getCompanyModel(),
+                    employer.getCompanySize(),
+                    employer.getWorkingTime(),
+                    employer.getOvertimePolicy(),
+                    employer.getId(),
+                    employer.getCity()
+            );
+            jobResponseList.add(jobResponse);
+        }
+        return jobResponseList;
     }
 
 }

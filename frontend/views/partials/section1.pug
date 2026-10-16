@@ -1,12 +1,13 @@
 div#job-search(class="bg-[#000065] py-[60px]")
     .contain 
         h1(class="font-[700] text-[28px] text-white text-center mb-[30px]") 887 Việc làm IT cho Developer "Chất"
-        form(class="flex gap-[15px] md:flex-nowrap flex-wrap")
-            select(class="md:w-[240px] w-full h-[56px] rounded-[4px] bg-white font-[500] text-[16px] px-[20px] text-[#121212]")
-                option(value="") Hà Nội
-                option(value="") Đà Nẵng
-                option(value="") TP.Hồ Chí Minh 
-            input(type="text", placeholder="Nhập từ khóa..." class="flex-1 h-[56px] rounded-[4px] bg-white font-[500] text-[16px] px-[20px] text-[#121212]")
+        form#job-search-form(class="flex gap-[15px] md:flex-nowrap flex-wrap")
+            select#search-city(class="md:w-[240px] w-full h-[56px] rounded-[4px] bg-white font-[500] text-[16px] px-[20px] text-[#121212]")
+                option(value="") Tất cả thành phố
+                option(value="Hà Nội") Hà Nội
+                option(value="Đà Nẵng") Đà Nẵng
+                option(value="TP.HCM") TP.HCM 
+            input#search-keyword(type="text", placeholder="Nhập từ khóa..." class="flex-1 h-[56px] rounded-[4px] bg-white font-[500] text-[16px] px-[20px] text-[#121212]")
             button(class="md:w-[240px] w-full h-[56px] bg-[#0088FF] font-[500] text-[16px] text-white flex justify-center items-center gap-[10px] rounded-[4px] cursor-pointer")
                 <i class="fa-solid fa-magnifying-glass text-[20px]"></i> Tìm Kiếm
 

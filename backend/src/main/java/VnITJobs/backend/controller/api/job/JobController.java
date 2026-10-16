@@ -38,4 +38,9 @@ public class JobController {
     public JobResponse getJob(@PathVariable("jobId") Long jobId) {
         return jobService.getJob(jobId);
     }
+
+    @GetMapping("/public")
+    public List<JobResponse> getPublicJobs(@RequestParam(required = false) String keyword, @RequestParam(required = false) String city, @RequestParam(required = false) String level, @RequestParam(required = false) String workType, @RequestParam(required = false) Long companyId){
+        return jobService.getPublicJobs(keyword, city, level, workType, companyId);
+    }
 }

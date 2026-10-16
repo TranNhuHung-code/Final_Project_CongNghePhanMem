@@ -64,13 +64,14 @@
     <div class="bg-[#000065] py-[60px]" id="job-search">
       <div class="contain"> 
         <h1 class="font-[700] text-[28px] text-white text-center mb-[30px]">887 Việc làm IT cho Developer "Chất"</h1>
-        <form class="flex gap-[15px] md:flex-nowrap flex-wrap">
-          <select class="md:w-[240px] w-full h-[56px] rounded-[4px] bg-white font-[500] text-[16px] px-[20px] text-[#121212]">
-            <option value="">Hà Nội</option>
-            <option value="">Đà Nẵng</option>
-            <option value="">TP.Hồ Chí Minh </option>
+        <form class="flex gap-[15px] md:flex-nowrap flex-wrap" id="job-search-form">
+          <select class="md:w-[240px] w-full h-[56px] rounded-[4px] bg-white font-[500] text-[16px] px-[20px] text-[#121212]" id="search-city">
+            <option value="">Tất cả thành phố</option>
+            <option value="Hà Nội">Hà Nội</option>
+            <option value="Đà Nẵng">Đà Nẵng</option>
+            <option value="TP.HCM">TP.HCM </option>
           </select>
-          <input class="flex-1 h-[56px] rounded-[4px] bg-white font-[500] text-[16px] px-[20px] text-[#121212]" type="text" placeholder="Nhập từ khóa...">
+          <input class="flex-1 h-[56px] rounded-[4px] bg-white font-[500] text-[16px] px-[20px] text-[#121212]" id="search-keyword" type="text" placeholder="Nhập từ khóa...">
           <button class="md:w-[240px] w-full h-[56px] bg-[#0088FF] font-[500] text-[16px] text-white flex justify-center items-center gap-[10px] rounded-[4px] cursor-pointer"><i class="fa-solid fa-magnifying-glass text-[20px]"></i> Tìm Kiếm</button>
         </form>
         <div class="sm:mt-[30px] mt-[38px] flex items-center gap-[12px] flex-wrap">
@@ -81,42 +82,26 @@
     </div>
     <div class="py-[60px]">
       <div class="contain"> 
-        <h2 class="font-[700] text-[28px] text-[#121212] mb-[30px]">76 việc làm <span class="text-[#0088FF]">reactjs</span></h2>
+        <h2 class="font-[700] text-[28px] text-[#121212] mb-[30px]" id="search-result-title">Đang tải công việc...</h2>
         <div class="rounded-[8px] bg-white py-[10px] px-[20px] flex flex-wrap gap-[12px]" style="box-shadow: 0px 4px 20px 0px #0000000F;">
-          <select class="border border-[#DEDEDE] rounded-[20px] py-[8px] px-[18px] font-[400] text-[16px] text-[#414042]"> 
+          <select class="border border-[#DEDEDE] rounded-[20px] py-[8px] px-[18px] font-[400] text-[16px] text-[#414042]" id="filter-level"> 
             <option value="">Cấp bậc</option>
-            <option value="">Intern</option>
-            <option value="">Fresher</option>
-            <option value="">Junior</option>
-            <option value="">Middle</option>
-            <option value="">Senior</option>
-            <option value="">Manager</option>
+            <option value="Intern">Intern</option>
+            <option value="Fresher">Fresher</option>
+            <option value="Junior">Junior</option>
+            <option value="Middle">Middle</option>
+            <option value="Senior">Senior</option>
+            <option value="Manager">Manager</option>
           </select>
-          <select class="border border-[#DEDEDE] rounded-[20px] py-[8px] px-[18px] font-[400] text-[16px] text-[#414042]">
+          <select class="border border-[#DEDEDE] rounded-[20px] py-[8px] px-[18px] font-[400] text-[16px] text-[#414042]" id="filter-work-type">
             <option value="">Hình thức làm việc </option>
-            <option value="">Tại công ty </option>
-            <option value="">Từ xa </option>
-            <option value="">Linh hoạt</option>
+            <option value="Tại công ty">Tại công ty </option>
+            <option value="Từ xa">Từ xa </option>
+            <option value="Linh hoạt">Linh hoạt</option>
           </select>
         </div>
-        <div class="my-[30px] grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-[20px]"> 
-          <div class="card-item"><img class="inner-bg" src="assets/images/bg-card.png"><a class="inner-box" href=""> 
-              <div class="py-[20px] px-[16px]">
-                <div class="inner-img w-[116px]"><img src="assets/images/demo/image1.png"></div>
-                <h3 class="font-[700] text-[18px] text-[#121212] text-center line-clamp-[2] mb-[6px]">Frontend Engineer (ReactJS)</h3>
-                <div class="font-[400] text-[14px] text-[#121212] text-center mb-[12px]">LG CNS Việt Nam</div>
-                <div class="font-[600] text-[16px] text-[#0088FF] text-center mb-[6px]">1.000$ - 1.500$</div>
-                <div class="font-[400] text-[14px] text-[#121212] text-center"><i class="fa-solid fa-user-tie text-[16px] mr-[8px]"></i> Fresher</div>
-                <div class="font-[400] text-[14px] text-[#121212] text-center mt-[6px]"><i class="fa-solid fa-briefcase text-[16px] mr-[8px]"></i> Tại văn phòng</div>
-                <div class="font-[400] text-[14px] text-[#121212] text-center mt-[6px]"><i class="fa-solid fa-location-dot text-[16px] mr-[8px]"></i> Ha Noi</div>
-                <div class="mt-[12px] flex justify-center items-center flex-wrap gap-[12px]"> 
-                  <div class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]">ReactJS</div>
-                  <div class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]">NextJS</div>
-                  <div class="border border-[#DEDEDE] rounded-[20px] py-[6px] px-[16px] font-[400] text-[12px] text-[#414042]">Javascript        </div>
-                </div>
-              </div></a></div>
-        </div>
-        <select class="border border-[#DEDEDE] bg-white rounded-[8px] py-[12px] px-[18px] font-[400] text-[16px] text-[#414042]"> 
+        <div class="my-[30px] grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-[20px]" id="search-job-list"> </div>
+        <select class="hidden border border-[#DEDEDE] bg-white rounded-[8px] py-[12px] px-[18px] font-[400] text-[16px] text-[#414042]"> 
           <option value="">Trang 1  </option>
           <option value="">Trang 2  </option>
           <option value="">Trang 3  </option>
@@ -131,5 +116,7 @@
     </footer>
     <script src="assets/js/api-error.js"></script>
     <script src="assets/js/auth-header.js"></script>
+    <script src="assets/js/search.js"></script>
+    <script src="assets/js/job-search.js"></script>
   </body>
 </html>

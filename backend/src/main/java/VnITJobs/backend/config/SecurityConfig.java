@@ -30,8 +30,14 @@ public class SecurityConfig {
 
         httpSecurity.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers(
+                        HttpMethod.GET,
+                        "/api/job/public",
+                        "/api/job/public/**",
+                        "/api/company/public",
+                        "/api/company/public/**"
+                ).permitAll()
                 .requestMatchers("/error").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/job/public/**").permitAll()
                 .requestMatchers("/api/job/**").hasRole("EMPLOYER")
                 .requestMatchers("/api/application/me").hasRole("CANDIDATE")
                 .requestMatchers("/api/application/employer/**").hasRole("EMPLOYER")
