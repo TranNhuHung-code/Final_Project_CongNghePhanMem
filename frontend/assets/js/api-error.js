@@ -1,7 +1,7 @@
 async function getApiErrorMessage(response) {
     const messages = {
         400: "Thông tin không hợp lệ. Vui lòng kiểm tra lại.",
-        401: "Phiên đăng nhập không hợp lệ. Vui lòng đăng nhập lại.",
+        401: "Phiên đăng nhập không hợp lệ. Mật khẩu, email hoặc loại tài khoản không đúng.",
         403: "Bạn không có quyền thực hiện thao tác này.",
         404: "Không tìm thấy thông tin yêu cầu.",
         409: "Dữ liệu đã tồn tại hoặc xảy ra xung đột.",
