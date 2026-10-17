@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/company")
 public class CompanyController {
@@ -30,5 +32,15 @@ public class CompanyController {
         String userIdStr = (String) principal;
         Long userId = Long.valueOf(userIdStr);
         return companyService.updateMyCompany(userId, companyUpdateRequest);
+    }
+
+    @GetMapping("/public")
+    public List<CompanyResponse> getAllCompanies(@RequestParam(required = false) String keyword, @RequestParam(required = false) String city){
+        return companyService.getAllCompanies(keyword, city);
+    }
+
+    @GetMapping("/public/{employerId}")
+    public CompanyResponse getCompany(@PathVariable("employerId") Long employerId){
+        return companyService.getCompany(employerId);
     }
 }

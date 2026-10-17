@@ -36,4 +36,7 @@ public class JobResponse {
     private String companySize;
     private String companyWorkingTime;
     private String companyOvertimePolicy;
+
+    private Long employerId;
+    private String city;
 }

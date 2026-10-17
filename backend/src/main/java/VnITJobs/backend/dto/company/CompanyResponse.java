@@ -33,4 +33,6 @@ public class CompanyResponse {
     private String overtimePolicy;
 
     private String description;
+
+    private long jobCount;
 }
