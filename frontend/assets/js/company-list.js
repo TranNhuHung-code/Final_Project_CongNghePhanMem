@@ -34,7 +34,7 @@ function renderCompanies(companies) {
         const logoPath = company.logoUrl || "";
 
         const logoUrl = /^\/uploads\/logo\/[a-zA-Z0-9._-]+$/.test(logoPath)
-            ? `http://localhost:8080${logoPath}`
+            ? `${logoPath}`
             : "assets/images/demo/image1.png";
 
         card.innerHTML = `
@@ -78,7 +78,7 @@ async function loadCompanies() {
     if (city) params.set("city", city);
     try {
         const response = await fetch(
-            `http://localhost:8080/api/company/public?${params.toString()}`
+            `/api/company/public?${params.toString()}`
         );
 
         if (!response.ok) {

@@ -1,4 +1,4 @@
-const API_ORIGIN = "http://localhost:8080";
+const API_ORIGIN = "";
 
 const token = localStorage.getItem("token");
 if (!token) {

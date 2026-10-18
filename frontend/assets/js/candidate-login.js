@@ -13,7 +13,7 @@ form.addEventListener("submit", async function (event) {
     const password = passwordInput.value;
 
     // 4. Gọi API backend
-    const response = await fetch("http://localhost:8080/api/auth/login/candidate", {
+    const response = await fetch("/api/auth/login/candidate", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

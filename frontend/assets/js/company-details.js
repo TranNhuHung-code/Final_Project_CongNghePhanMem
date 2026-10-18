@@ -35,7 +35,7 @@ function renderCompanyJobs(jobs) {
         const logoPath = job.companyLogoUrl || "";
 
         const logoUrl = /^\/uploads\/logo\/[a-zA-Z0-9._-]+$/.test(logoPath)
-            ? `http://localhost:8080${logoPath}`
+            ? `${logoPath}`
             : "assets/images/demo/image1.png";
 
         const technologiesHTML = (job.technologies || "")
@@ -104,7 +104,7 @@ async function loadCompanyDetails() {
 
     try {
         const response = await fetch(
-            `http://localhost:8080/api/company/public/${companyId}`
+            `/api/company/public/${companyId}`
         );
 
         if (!response.ok) {
@@ -116,7 +116,7 @@ async function loadCompanyDetails() {
         const logoPath = company.logoUrl || "";
 
         const logoUrl = /^\/uploads\/logo\/[a-zA-Z0-9._-]+$/.test(logoPath)
-            ? `http://localhost:8080${logoPath}`
+            ? `${logoPath}`
             : "assets/images/demo/image1.png";
 
         document.getElementById("company-logo").src = logoUrl;
@@ -163,7 +163,7 @@ async function loadCompanyJobs() {
         const query = new URLSearchParams({ companyId });
 
         const response = await fetch(
-            `http://localhost:8080/api/job/public?${query.toString()}`
+            `/api/job/public?${query.toString()}`
         );
 
         if (!response.ok) {

@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "pug -w ./views/pages -o ./ -P"
+    "start": "pug -w ./views/pages -o ./ -P",
+    "build": "pug ./views/pages -o ./ -P"
   },
   "dependencies": {
     "pug-cli": "^1.0.0-alpha6"

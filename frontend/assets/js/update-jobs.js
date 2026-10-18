@@ -11,7 +11,7 @@ if (!jobId) {
 
 const form = document.getElementById("create-job-form");
 
-const API_ORIGIN = "http://localhost:8080";
+const API_ORIGIN = "";
 const MAX_IMAGES = 4;
 const MAX_IMAGE_SIZE = 15 * 1024 * 1024;
 let currentImages = "";   // ảnh hiện có của job, dạng "url1,url2"
@@ -85,7 +85,7 @@ function renderCurrentImages(images) {
 
 async function loadJobData() {
     try {
-        const response = await fetch("http://localhost:8080/api/job/me", {
+        const response = await fetch("/api/job/me", {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`,
@@ -153,7 +153,7 @@ form.addEventListener("submit", async function (event) {
         if (files.length > 0) {
             images = await uploadJobImages(files);
         }
-        const response = await fetch(`http://localhost:8080/api/job/${jobId}`, {
+        const response = await fetch(`/api/job/${jobId}`, {
             method: "PATCH",
             headers: {
                 "Authorization": `Bearer ${token}`,

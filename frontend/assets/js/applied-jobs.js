@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/api/application/me";
+const API_URL = "/api/application/me";
 
 const applicationsContainer = document.getElementById(
     "applications-container"
@@ -60,7 +60,7 @@ function formatDate(dateValue) {
 }
 
 // Chỉ cho phép mở URL HTTP/HTTPS
-const CV_BASE_ORIGIN = "http://localhost:8080";   // đặt tên khác nếu file đã có biến tương tự
+const CV_BASE_ORIGIN = "";   // đặt tên khác nếu file đã có biến tương tự
 
 function getSafeUrl(value) {
     if (!value) return null;

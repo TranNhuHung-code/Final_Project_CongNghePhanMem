@@ -1,4 +1,4 @@
-const API_ORIGIN = "http://localhost:8080";
+const API_ORIGIN = "";
 const MAX_IMAGES = 4;
 const MAX_IMAGE_SIZE = 15 * 1024 * 1024;
 

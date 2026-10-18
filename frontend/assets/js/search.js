@@ -42,7 +42,7 @@ function renderJobs(jobs) {
         const logoPath = job.companyLogoUrl || "";
 
         const logoUrl = /^\/uploads\/logo\/[a-zA-Z0-9._-]+$/.test(logoPath)
-            ? `http://localhost:8080${logoPath}`
+            ? `${logoPath}`
             : "assets/images/demo/image1.png";
         card.innerHTML = `
             <img src="assets/images/bg-card.png" class="inner-bg">
@@ -115,7 +115,7 @@ async function loadSearchResults() {
 
     try {
         const response = await fetch(
-            `http://localhost:8080/api/job/public?${query.toString()}`
+            `/api/job/public?${query.toString()}`
         );
 
         if (requestId !== latestRequestId) return;

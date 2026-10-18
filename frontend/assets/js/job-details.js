@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8080/api";
+const API_BASE_URL = "/api";
 
 const params = new URLSearchParams(window.location.search);
 const jobId = params.get("jobId");
@@ -82,7 +82,7 @@ function renderImages(value) {
 
         // Nếu URL là đường dẫn upload từ backend
         image.src = url.startsWith("/uploads/")
-            ? `http://localhost:8080${url}`
+            ? `${url}`
             : url;
 
         image.alt = "Ảnh công việc";

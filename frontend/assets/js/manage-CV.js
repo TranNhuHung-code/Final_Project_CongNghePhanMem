@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8080/api";
+const API_BASE_URL = "/api";
 
 // ==================================================
 // 1. LẤY CÁC PHẦN TỬ HTML
@@ -133,7 +133,7 @@ async function sendEmployerApplicationRequest(
 async function markApplicationViewed(application) {
     // Mở CV ngay trong thao tác click nếu có URL
     if (application.cvFileUrl) {
-        const cvUrl = new URL(application.cvFileUrl, "http://localhost:8080").href;
+        const cvUrl = new URL(application.cvFileUrl, window.location.origin).href;
         window.open(cvUrl, "_blank", "noopener,noreferrer");
     }
 

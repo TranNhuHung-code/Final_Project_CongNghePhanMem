@@ -9,7 +9,7 @@ form.addEventListener("submit", async function (event) {
     const email = emailInput.value;
     const password = passwordInput.value;
 
-    const response = await fetch("http://localhost:8080/api/auth/login/employer", {
+    const response = await fetch("/api/auth/login/employer", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
