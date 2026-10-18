@@ -15,8 +15,11 @@ RUN npm run build
 # Giai đoạn 2: Chạy website bằng Nginx
 FROM nginx:alpine
 
+ENV BACKEND_HOST=backend
+
+COPY nginx.conf /etc/nginx/templates/default.conf.template
+
 COPY --from=build /app/assets/ /usr/share/nginx/html/assets/
 COPY --from=build /app/*.html /usr/share/nginx/html/
-COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
