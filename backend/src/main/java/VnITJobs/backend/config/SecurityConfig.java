@@ -48,7 +48,7 @@ public class SecurityConfig {
         httpSecurity.csrf(csrf -> csrf.disable());
         httpSecurity.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         httpSecurity.cors(cors->cors.configurationSource(corsConfigurationSource()));
-        httpSecurity.headers(headers -> headers.frameOptions(frame -> frame.disable()));
+        httpSecurity.headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()));
         return httpSecurity.build();
     }
     @Bean

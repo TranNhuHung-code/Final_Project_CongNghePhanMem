@@ -1,5 +1,5 @@
 
-const API = "http://localhost:8080/api";
+const API = "/api";
 const params = new URLSearchParams(window.location.search);
 const applicationId = Number(params.get("id"));
 
