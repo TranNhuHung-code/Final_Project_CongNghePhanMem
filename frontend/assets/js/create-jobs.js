@@ -78,6 +78,7 @@ form.addEventListener("submit", async function (event) {
         })
     });
     if (response.ok) {
+        alert("Tạo job thành công");
         window.location.href = "manage-jobs.html";
     } else {
         const message = await getApiErrorMessage(response);
