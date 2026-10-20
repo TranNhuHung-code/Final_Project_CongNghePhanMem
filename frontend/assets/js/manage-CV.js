@@ -334,7 +334,9 @@ function renderApplications(applications) {
         const viewButton = createActionButton(
             "Xem",
             "bg-[#0088FF] rounded-[4px] py-[8px] px-[20px] cursor-pointer font-[400] text-[14px] text-white",
-            () => markApplicationViewed(application)
+            () => {window.location.href =
+                    `CV-details.html?id=${application.id}`;
+            }
         );
 
         // Nút Duyệt
