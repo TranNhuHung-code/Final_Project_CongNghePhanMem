@@ -71,52 +71,57 @@ Final_Project_CongNghePhanMem/
 
    `npm run start` biên dịch Pug thành HTML và theo dõi thay đổi. Mở `frontend/index.html` qua Live Server. Với Live Server, cấu hình các lời gọi API hướng đến Backend tại `http://localhost:8080`.
 
-## Chạy bằng Docker (nhánh `feature/docker-deploy`)
+## Hướng dẫn chạy chương trình bằng Docker
 
-1. Chuyển nhánh:
+Nhóm đã đóng gói hệ thống VN.ITJobs thành bộ Docker Demo, bao gồm Frontend, Backend, MySQL và dữ liệu mẫu. Giảng viên có thể chạy chương trình mà không cần cài đặt riêng Java, Gradle, Node.js hoặc MySQL.
 
-   ```bash
-   git switch feature/docker-deploy
-   ```
+### 1. Yêu cầu hệ thống
 
-2. Tạo `.env.docker.local` tại thư mục gốc; không commit file này:
+- Máy tính sử dụng Windows 10/11.
+- Đã cài đặt và khởi động Docker Desktop.
+- Đã tải bộ `VNITJobs_Docker.zip` từ Google Drive và giải nén.
 
-   ```dotenv
-   MYSQL_ROOT_PASSWORD=<mat_khau_root>
-   MYSQL_APP_PASSWORD=<mat_khau_tai_khoan_itjobs_app>
-   JWT_SECRET=<khoa_ngau_nhien_toi_thieu_32_bytes>
-   ```
+### 2. Các bước khởi động
 
-   **Chú ý:** Nếu MySQL volume đã có dữ liệu, mật khẩu trong file này phải khớp với tài khoản MySQL hiện có; đổi biến môi trường không tự đổi mật khẩu trong database.
+**Bước 1:** Giải nén `VNITJobs_Docker.zip` vào một thư mục trên máy tính.
 
-3. Build và chạy:
+**Bước 2:** Mở Docker Desktop và đợi Docker Engine khởi động hoàn tất.
 
-   ```bash
-   docker build -t vnitjobs-backend:dev ./backend
-   docker compose --env-file .env.docker.local up -d --build
-   ```
+**Bước 3:** Mở thư mục `VNITJobs_Docker`, nhấp đúp vào tệp `START.bat`.
 
-   Hiện `compose.yaml` sử dụng `image: vnitjobs-backend:dev` cho Backend (không có `build:`), vì vậy phải **build Backend thủ công** sau khi sửa Java.
+Chương trình sẽ tự động:
 
-4. Truy cập:
+- Nạp các Docker Images đã được nhóm đóng gói.
+- Khởi động MySQL, Backend và Frontend.
+- Khởi tạo cơ sở dữ liệu và nạp dữ liệu mẫu ở lần chạy đầu tiên.
 
-   | Dịch vụ | Địa chỉ |
-   |---|---|
-   | Website qua Nginx | http://localhost:8082 |
-   | Backend trực tiếp | http://localhost:8081 |
-   | MySQL từ host | `127.0.0.1:3307` |
+**Bước 4:** Đợi quá trình khởi động hoàn tất, sau đó mở trình duyệt và truy cập:
 
-   Bên trong Docker, Backend kết nối MySQL bằng hostname `db` và cổng `3306`.
+**http://localhost:18082**
 
-5. Kiểm tra và dừng:
+### 3. Tài khoản đăng nhập thử nghiệm
 
-   ```bash
-   docker compose --env-file .env.docker.local ps
-   docker compose --env-file .env.docker.local logs --tail=80 backend
-   docker compose --env-file .env.docker.local down
-   ```
+| Vai trò | Email | Mật khẩu |
+|---|---|---|
+| Ứng viên | candidate1@vnitjobs.demo | Demo@2026 |
+| Nhà tuyển dụng | employer1@vnitjobs.demo | Demo@2026 |
 
-   Không dùng `docker compose down -v` nếu muốn giữ lại database và file CV trong Docker volumes.
+Các tài khoản và dữ liệu trên được tạo phục vụ mục đích kiểm thử, không chứa thông tin cá nhân thực tế.
+
+### 4. Dừng chương trình
+
+Khi không sử dụng, nhấp đúp vào tệp `STOP.bat` trong thư mục `VNITJobs_Demo` để dừng hệ thống.
+
+Dữ liệu đã tạo trong quá trình sử dụng được lưu trữ bằng Docker Volume và không bị xóa khi dừng chương trình thông thường.
+
+### 5. Lưu ý
+
+- Không cần thực hiện các lệnh `docker build`, `npm install` hoặc `gradlew`.
+- Không cần tạo cơ sở dữ liệu MySQL thủ công.
+- Cần giữ nguyên cấu trúc thư mục sau khi giải nén.
+- Nếu website chưa hiển thị ngay, vui lòng đợi quá trình khởi động Backend và MySQL hoàn tất rồi tải lại trang.
+- Bộ Docker Demo được chuẩn bị cho máy Windows có Docker Desktop và kiến trúc tương thích với các Docker Images được cung cấp.
+
 
 ## Triển khai Railway
 
