@@ -130,16 +130,10 @@ Nhánh `feature/docker-deploy` được sử dụng để triển khai ba servic
 - Frontend phục vụ các trang HTML và proxy `/api/`, `/uploads/` đến Backend.
 - Backend sử dụng profile `railway` và các Railway Variables: `SPRING_PROFILES_ACTIVE=railway`, `DB_URL`, `DB_USERNAME`, `DB_PASSWORD`, `JWT_SECRET`.
 - MySQL dùng persistent volume. Đường dẫn truy cập công khai của Frontend có thể thay đổi; xem Railway → Frontend → Networking để lấy domain hiện tại.
-
+- Link website: https://vnitjobs.up.railway.app
 ## Bảo mật và lưu trữ
 
 - Mật khẩu tài khoản được mã hóa bằng BCrypt; JWT xác thực các yêu cầu cần đăng nhập.
 - Không commit mật khẩu database, JWT secret, `.env.docker.local` hoặc CV chứa dữ liệu cá nhân thật.
 - CV được lưu trên hệ thống file và có đường dẫn tham chiếu trong database. Docker Volume hỗ trợ giữ file qua các lần tạo lại container, **không thay thế backup**.
 - Phiên bản demo có thể còn các hạn chế về quản lý token, sao lưu file CV và kiểm thử tự động.
-
-## Tài liệu nộp bài
-
-Bộ nộp nên đi kèm **báo cáo đồ án**, **source code**, **script SQL tạo cấu trúc và dữ liệu mẫu** cùng README này. Script SQL nên được xuất/kiểm thử từ database tương ứng với phiên bản source cuối cùng.
-
-**Repository:** https://github.com/TranNhuHung-code/Final_Project_CongNghePhanMem
